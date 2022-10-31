@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: example-dlq-service
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: example-prod-env
+  source:
+    path: helm
+    repoURL: https://github.com/cloudnativeentrepreneur/example-dlq-service.git
+    targetRevision: v0.5.0
+    helm:
+      version: v3
+      values: |
+        local: true
+  destination:
+    namespace: example-prod-env
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: true
