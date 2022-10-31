@@ -12,9 +12,11 @@ spec:
   source:
     path: helm
     repoURL: https://github.com/cloudnativeentrepreneur/web3auth-service.git
-    targetRevision: v0.23.3
+    targetRevision: v0.24.0
     helm:
       version: v3
+      values: |
+        local: true
   destination:
     namespace: example-local-env
     server: https://kubernetes.default.svc
