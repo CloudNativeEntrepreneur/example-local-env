@@ -15,6 +15,8 @@ spec:
     targetRevision: v0.12.1
     helm:
       version: v3
+      values: |
+        local: true
   destination:
     namespace: example-local-env
     server: https://kubernetes.default.svc
