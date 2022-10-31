@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: example-hasura-projections-service
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: example-prod-env
+  source:
+    path: helm
+    repoURL: https://github.com/cloudnativeentrepreneur/example-hasura-projections-service.git
+    targetRevision: v0.12.1
+    helm:
+      version: v3
+      values: |
+        local: true
+  destination:
+    namespace: example-prod-env
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
