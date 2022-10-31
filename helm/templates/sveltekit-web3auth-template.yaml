@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: example-ui
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: example-local-env
+  source:
+    path: helm
+    repoURL: https://github.com/cloudnativeentrepreneur/sveltekit-web3auth-template.git
+    targetRevision: v0.12.0
+    helm:
+      version: v3
+      values: |
+        local: true
+  destination:
+    namespace: example-local-env
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
