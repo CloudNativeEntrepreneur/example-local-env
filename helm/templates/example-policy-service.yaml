@@ -13,7 +13,7 @@ spec:
     targetRevision: v0.4.0
     helm:
       version: v3
-      values:
+      values: |
         local: true
   destination:
     namespace: example-local-env
