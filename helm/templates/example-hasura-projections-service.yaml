@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: example-prod-env
+  project: example-local-env
   source:
     path: helm
     repoURL: https://github.com/cloudnativeentrepreneur/example-hasura-projections-service.git
@@ -16,7 +16,7 @@ spec:
       values: |
         local: true
   destination:
-    namespace: example-prod-env
+    namespace: example-local-env
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
