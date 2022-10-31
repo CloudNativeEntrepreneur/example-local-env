@@ -10,7 +10,7 @@ spec:
   source:
     path: helm
     repoURL: https://github.com/cloudnativeentrepreneur/example-hasura-projections-service.git
-    targetRevision: v0.13.0
+    targetRevision: v0.14.0
     helm:
       version: v3
       values: |
