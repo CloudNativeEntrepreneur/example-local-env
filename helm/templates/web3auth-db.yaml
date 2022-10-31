@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: example-prod-env
+  project: example-local-env
   source:
     path: charts/web3auth-db
     repoURL: https://github.com/cloudnativeentrepreneur/web3auth-db.git
@@ -14,7 +14,7 @@ spec:
     helm:
       version: v3
   destination:
-    namespace: example-prod-env
+    namespace: example-local-env
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:

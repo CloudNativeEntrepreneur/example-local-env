@@ -1,4 +1,4 @@
-# Example Domain's Production Environment
+# Example Domain's Local Development Environment
 
 Create the following resource in your argocd autopilot's projects directory
 
@@ -6,7 +6,7 @@ Create the following resource in your argocd autopilot's projects directory
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: example-prod-env
+  name: example-local-env
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "2"
@@ -31,21 +31,21 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: example-prod-env
+  name: example-local-env
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "3"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: example-prod-env
+  project: example-local-env
   source:
-    repoURL: https://github.com/cloudnativeentrepreneur/example-prod-env.git
+    repoURL: https://github.com/cloudnativeentrepreneur/example-local-env.git
     targetRevision: HEAD
     path: helm
   destination:
     server: https://kubernetes.default.svc
-    namespace: example-prod-env
+    namespace: example-local-env
   syncPolicy:
     automated:
       selfHeal: true

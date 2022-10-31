@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: example-prod-env-environment
+  name: example-local-env-environment
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: example-prod-env
+  project: example-local-env
   source:
     path: helm
     repoURL: https://github.com/cloudnativeentrepreneur/environment.git
@@ -14,7 +14,7 @@ spec:
     helm:
       version: v3
   destination:
-    namespace: example-prod-env
+    namespace: example-local-env
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
