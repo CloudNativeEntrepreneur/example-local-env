@@ -10,7 +10,7 @@ spec:
   source:
     path: helm
     repoURL: https://github.com/cloudnativeentrepreneur/example-dlq-service.git
-    targetRevision: v0.6.0
+    targetRevision: v0.6.1
     helm:
       version: v3
       values: |
