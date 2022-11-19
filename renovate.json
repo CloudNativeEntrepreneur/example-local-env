@@ -1,0 +1,6 @@
+{
+  "extends": ["config:base"],
+  "argocd": {
+    "fileMatch": ["helm/templates/.+\\.yaml$"]
+  }
+}
