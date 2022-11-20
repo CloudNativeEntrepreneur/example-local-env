@@ -1,3 +1,5 @@
+---
+# Source: sourced-db-promote/templates/application.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -5,14 +7,12 @@ metadata:
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
 spec:
   project: example-local-env
   source:
-    path: charts/sourced-db
-    repoURL: https://github.com/cloudnativeentrepreneur/sourced-db.git
-    targetRevision: HEAD
+    path: helm
+    repoURL: https://github.com/CloudNativeEntrepreneur/sourced-db.git
+    targetRevision: v0.6.5
     helm:
       version: v3
   destination:
@@ -22,4 +22,3 @@ spec:
     automated:
       selfHeal: true
       prune: true
-
