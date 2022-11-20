@@ -1,18 +1,18 @@
+---
+# Source: web3auth-db-promote/templates/application.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: example-web3auth-db
+  name: web3auth-db
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd.argoproj.io/sync-wave: "-1"
 spec:
   project: example-local-env
   source:
-    path: charts/web3auth-db
-    repoURL: https://github.com/cloudnativeentrepreneur/web3auth-db.git
-    targetRevision: HEAD
+    path: helm
+    repoURL: https://github.com/CloudNativeEntrepreneur/web3auth-db.git
+    targetRevision: v0.5.0
     helm:
       version: v3
   destination:
@@ -22,4 +22,3 @@ spec:
     automated:
       selfHeal: true
       prune: true
-
