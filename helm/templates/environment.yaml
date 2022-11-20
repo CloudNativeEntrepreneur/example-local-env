@@ -1,18 +1,18 @@
+---
+# Source: environment-promote/templates/application.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: example-local-env-environment
+  name: environment
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  annotations:
-    argocd.argoproj.io/sync-wave: "-2"
 spec:
   project: example-local-env
   source:
     path: helm
-    repoURL: https://github.com/cloudnativeentrepreneur/environment.git
-    targetRevision: v0.4.0
+    repoURL: https://github.com/CloudNativeEntrepreneur/environment.git
+    targetRevision: v0.5.0
     helm:
       version: v3
   destination:
