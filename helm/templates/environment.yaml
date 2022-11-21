@@ -12,7 +12,7 @@ spec:
   source:
     path: helm
     repoURL: https://github.com/CloudNativeEntrepreneur/environment.git
-    targetRevision: v0.5.1
+    targetRevision: v0.5.3
     helm:
       version: v3
   destination:
