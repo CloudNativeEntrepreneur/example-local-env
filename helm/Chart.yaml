@@ -1,4 +1,4 @@
 apiVersion: v1
 description: Example Production environment
 name: example-local-env
-version: 0.0.0-dev
+version: v0.27.0
