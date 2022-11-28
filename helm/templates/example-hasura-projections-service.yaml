@@ -1,3 +1,5 @@
+---
+# Source: example-hasura-projections-service-promote/templates/application.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -9,12 +11,15 @@ spec:
   project: example-local-env
   source:
     path: helm
-    repoURL: https://github.com/cloudnativeentrepreneur/example-hasura-projections-service.git
-    targetRevision: v0.14.1
+    repoURL: https://github.com/CloudNativeEntrepreneur/example-hasura-projections-service.git
+    targetRevision: v0.15.0
     helm:
       version: v3
       values: |
+        
+        # Set from promote job of CloudNativeEntrepreneur/example-hasura-projections-service
         local: true
+        
   destination:
     namespace: example-local-env
     server: https://kubernetes.default.svc
