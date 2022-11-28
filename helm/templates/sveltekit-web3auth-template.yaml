@@ -1,7 +1,9 @@
+---
+# Source: sveltekit-web3auth-template-promote/templates/application.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: example-ui
+  name: sveltekit-web3auth-template
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,12 +11,15 @@ spec:
   project: example-local-env
   source:
     path: helm
-    repoURL: https://github.com/cloudnativeentrepreneur/sveltekit-web3auth-template.git
-    targetRevision: v0.13.1
+    repoURL: https://github.com/CloudNativeEntrepreneur/sveltekit-web3auth-template.git
+    targetRevision: v0.14.0
     helm:
       version: v3
       values: |
+        
+        # Set from promote job of CloudNativeEntrepreneur/sveltekit-web3auth-template
         local: true
+        
   destination:
     namespace: example-local-env
     server: https://kubernetes.default.svc
