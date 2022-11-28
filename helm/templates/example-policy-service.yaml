@@ -12,7 +12,7 @@ spec:
   source:
     path: helm
     repoURL: https://github.com/CloudNativeEntrepreneur/example-policy-service.git
-    targetRevision: v0.7.5
+    targetRevision: v0.7.6
     helm:
       version: v3
       values: |
